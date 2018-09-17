@@ -182,7 +182,7 @@ every {@timeInt}:
 
 	wait {@timeout}
 	if {reaction.win} is false:
-		console command "tellraw @a ["""",{""text"":""["",""color"":""dark_gray""},{""text"":""Reaction"",""color"":""yellow"",""bold"":true},{""text"":""]"",""color"":""dark_gray"",""bold"":false},{""text"":"" Nobody got the word in time :("",""color"":""red""}]"
+		broadcast "&8[&e&lReaction&8] &f%{reaction.winner}% &cNobody got the word in time :("
 	set {reaction.chat} to false
 
 
@@ -196,9 +196,9 @@ on chat:
 	set {reaction.win} to true
 
 	if {reaction.type} is 0:
-		console command "tellraw @a ["""",{""text"":""["",""color"":""dark_gray""},{""text"":""Reaction"",""color"":""yellow"",""bold"":true},{""text"":""]"",""color"":""dark_gray"",""bold"":false},{""text"":"" %{_reaction.winner}%"",""color"":""white""},{""text"":"" typed the word"",""color"":""green""},{""text"":"" %{reaction.activeWord}%"",""color"":""white""},{""text"":"" in"",""color"":""green""},{""text"":"" %difference between {_reaction.timeWin} and {reaction.time}%"",""color"":""white""},{""text"":""!"",""color"":""green""}]"
+		broadcast "&8[&e&lReaction&8] &f%{reaction.winner}% &atyped the word &f%{reaction.activeWord}% &ain &f%difference between {_reaction.timeWin} and {reaction.time}%&a!"
 	else if {reaction.type} is 1:
-		console command "tellraw @a ["""",{""text"":""["",""color"":""dark_gray""},{""text"":""Reaction"",""color"":""yellow"",""bold"":true},{""text"":""]"",""color"":""dark_gray"",""bold"":false},{""text"":"" %{_reaction.winner}%"",""color"":""white""},{""text"":"" unscrambled the word"",""color"":""green""},{""text"":"" %{reaction.activeWord}%"",""color"":""white""},{""text"":"" in"",""color"":""green""},{""text"":"" %difference between {_reaction.timeWin} and {reaction.time}%"",""color"":""white""},{""text"":""!"",""color"":""green""}]"
+		broadcast "&8[&e&lReaction&8] &f%{reaction.winner}% &aunscrambled the word &f%{reaction.activeWord}% &ain &f%difference between {_reaction.timeWin} and {reaction.time}%&a!"
 
 	#event for winner (use {_reaction.winner} to reward the player)
 	{@reward}
